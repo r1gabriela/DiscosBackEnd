@@ -1,0 +1,5 @@
+package com.cds.apirest.repository;
+
+public interface AlbumRepository {
+
+}

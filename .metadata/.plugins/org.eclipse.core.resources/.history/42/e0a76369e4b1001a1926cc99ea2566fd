@@ -1,0 +1,5 @@
+package com.cds.apirest.serviceImpl;
+
+public class UsuarioServiceImpl {
+
+}

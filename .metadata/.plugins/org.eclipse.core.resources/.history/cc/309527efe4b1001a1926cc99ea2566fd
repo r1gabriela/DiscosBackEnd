@@ -1,0 +1,12 @@
+package com.cds.apirest.serviceImpl;
+
+import com.cds.apirest.repository.AlbumRepository;
+import com.cds.apirest.service.AlbumService;
+
+public class AlbumServiceImpl implements AlbumService{
+
+	public AlbumServiceImpl(AlbumRepository albumRepository) {
+		this.albumRepository = albumRepository;
+	}
+
+}
