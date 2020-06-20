@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cds.apirest.dto.AlbumDto;
 import com.cds.apirest.entity.Album;
+import com.cds.apirest.entity.Banda;
 import com.cds.apirest.repository.AlbumRepository;
 import com.cds.apirest.service.AlbumService;
 
@@ -48,5 +49,11 @@ public class AlbumServiceImpl implements AlbumService{
 		
 		return albuns;
 	}
+	
+	
+	public ArrayList<AlbumDto> listarPorBanda(Banda banda){
+		return new ModelMapper().map(albumRepository.listarPorBanda(banda), new TypeToken<ArrayList<AlbumDto>>() {}.getType());
+	}
+	
 
 }
