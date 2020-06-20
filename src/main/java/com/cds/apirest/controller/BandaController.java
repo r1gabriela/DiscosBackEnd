@@ -1,5 +1,24 @@
 package com.cds.apirest.controller;
 
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cds.apirest.dto.BandaDto;
+import com.cds.apirest.service.BandaService;
+
+@RestController
+@RequestMapping(value="/banda")
 public class BandaController {
+	
+	BandaService bandaServiceImpl;
+	
+	
+	@RequestMapping(value="/salvar", method=RequestMethod.POST)
+	public BandaDto salvar(@RequestBody BandaDto bandaDto) throws Exception {
+		return bandaServiceImpl.salvar(bandaDto);
+	}
+	
 
 }

@@ -1,9 +1,5 @@
 package com.cds.apirest.dto;
 
-import java.util.List;
-
-import com.cds.apirest.entity.Album;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +14,4 @@ public class BandaDto {
 	
 	private String genero;
 	
-	private List<Album> albuns;
-
 }

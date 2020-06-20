@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cds.apirest.dto.AlbumDto;
 import com.cds.apirest.service.AlbumService;
-import com.cds.apirest.serviceImpl.AlbumServiceImpl;
 
 @RestController
 @RequestMapping(path="/album")
