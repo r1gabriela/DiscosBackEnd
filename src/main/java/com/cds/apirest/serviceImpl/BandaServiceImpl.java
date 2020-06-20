@@ -21,9 +21,14 @@ public class BandaServiceImpl implements BandaService {
 	public BandaDto salvar(BandaDto bandaDto) throws Exception {
 		try {
 			Banda banda = new Banda();
-
-			banda = bandaRepository.save(new ModelMapper().map(bandaDto, Banda.class));
-
+			banda = bandaRepository.pesquisarPorNome(bandaDto.getNome().toLowerCase());
+				if(banda == null || banda.getIdBanda() == bandaDto.getIdBanda()) {
+					banda = bandaRepository.save(new ModelMapper().map(bandaDto, Banda.class));
+					
+				}else {
+					throw new Exception("Banda ja existe");
+				}
+			
 			return new ModelMapper().map(banda, BandaDto.class);
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());

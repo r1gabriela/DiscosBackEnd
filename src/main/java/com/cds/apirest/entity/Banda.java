@@ -19,11 +19,14 @@ import lombok.Setter;
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 public class Banda implements Serializable {
 
-	private static final long serialVersionUID = -8132444940965202534L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8016138082349970814L;
+
 	@Id
 	@Column(name = "idBanda", nullable = false)
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idBanda;
 	
 	@Column(name = "nome", nullable=false, length= 255)
