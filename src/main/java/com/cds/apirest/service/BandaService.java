@@ -10,4 +10,6 @@ public interface BandaService {
 
 	public ArrayList<BandaDto> listar();
 
+	public boolean excluir(BandaDto bandaDto);
+
 }

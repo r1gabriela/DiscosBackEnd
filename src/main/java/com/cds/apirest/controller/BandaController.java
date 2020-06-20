@@ -30,5 +30,10 @@ public class BandaController {
 		
 	}
 	
+	@RequestMapping(value="/excluir", method=RequestMethod.POST)
+	public boolean excluir(@RequestBody BandaDto bandaDto) {
+		return bandaServiceImpl.excluir(bandaDto);
+	}
+	
 
 }

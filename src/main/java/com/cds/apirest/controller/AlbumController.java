@@ -28,5 +28,10 @@ public class AlbumController {
 	public ArrayList<AlbumDto> listar(){
 		return albumServiceImpl.listar();
 	}
+	
+	@RequestMapping(value="/excluir", method=RequestMethod.POST)
+	public boolean excluir(@RequestBody AlbumDto albumDto) {
+		return albumServiceImpl.excluir(albumDto);
+	}
 
 }

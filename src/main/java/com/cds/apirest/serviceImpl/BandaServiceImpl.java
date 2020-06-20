@@ -49,5 +49,16 @@ public class BandaServiceImpl implements BandaService {
 		
 		return bandas;
 	}
+	
+	@Override
+	public boolean excluir(BandaDto bandaDto) {
+		try {
+			bandaRepository.delete(new ModelMapper().map(bandaDto, Banda.class));
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }

@@ -50,10 +50,20 @@ public class AlbumServiceImpl implements AlbumService{
 		return albuns;
 	}
 	
-	
+	@Override
 	public ArrayList<AlbumDto> listarPorBanda(Banda banda){
 		return new ModelMapper().map(albumRepository.listarPorBanda(banda), new TypeToken<ArrayList<AlbumDto>>() {}.getType());
 	}
 	
-
+	@Override
+	public boolean excluir(AlbumDto albumDto) {
+		try {
+			albumRepository.delete(new ModelMapper().map(albumDto, Album.class));
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 }
