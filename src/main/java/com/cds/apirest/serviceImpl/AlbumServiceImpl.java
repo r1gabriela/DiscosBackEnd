@@ -1,6 +1,9 @@
 package com.cds.apirest.serviceImpl;
 
+import java.util.ArrayList;
+
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cds.apirest.dto.AlbumDto;
@@ -33,6 +36,17 @@ public class AlbumServiceImpl implements AlbumService{
 			throw new Exception (e.getMessage());
 		}
 		
+	}
+	
+	@Override
+	public ArrayList<AlbumDto> listar(){
+		ArrayList<AlbumDto> albuns = new ArrayList<>();
+		Iterable<Album> iterable = albumRepository.findAll();
+		
+		if(iterable != null) 
+			albuns  = new ModelMapper().map(iterable, new TypeToken<ArrayList<AlbumDto>>() {}.getType());
+		
+		return albuns;
 	}
 
 }

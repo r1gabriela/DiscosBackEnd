@@ -1,6 +1,9 @@
 package com.cds.apirest.serviceImpl;
 
+import java.util.ArrayList;
+
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cds.apirest.dto.BandaDto;
@@ -34,6 +37,17 @@ public class BandaServiceImpl implements BandaService {
 			throw new Exception(e.getMessage());
 		}
 
+	}
+	
+	@Override
+	public ArrayList<BandaDto> listar(){
+		ArrayList<BandaDto> bandas = new ArrayList<>();
+		Iterable<Banda> iterable = bandaRepository.findAll();
+		
+		if(iterable != null)
+			bandas = new ModelMapper().map(iterable, new TypeToken<ArrayList<BandaDto>>() {}.getType());
+		
+		return bandas;
 	}
 
 }
