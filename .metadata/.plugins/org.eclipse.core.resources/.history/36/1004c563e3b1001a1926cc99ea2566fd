@@ -1,5 +1,0 @@
-package com.cds.apirest.repository;
-
-public class BandaRepository {
-
-}
