@@ -22,5 +22,13 @@ public class UsuarioController {
 		return usuarioServiceImpl.cadastrar(usuarioDto);
 	}
 	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public UsuarioDto logar(@RequestBody UsuarioDto usuarioDto) {
+		usuarioServiceImpl.autoLogin(usuarioDto.getUsername(), usuarioDto.getPassword());
+				return usuarioDto;
+	}
+		
+		
+	
 
 }
