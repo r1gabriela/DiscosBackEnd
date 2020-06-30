@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cds.apirest.dto.BandaDto;
@@ -20,7 +21,7 @@ public class BandaController {
 	
 	
 	@RequestMapping(value="/salvar", method=RequestMethod.POST)
-	public BandaDto salvar(@RequestBody BandaDto bandaDto) throws Exception {
+	public boolean salvar(@RequestBody BandaDto bandaDto) throws Exception {
 		return bandaServiceImpl.salvar(bandaDto);
 	}
 	
@@ -30,9 +31,9 @@ public class BandaController {
 		
 	}
 	
-	@RequestMapping(value="/excluir", method=RequestMethod.POST)
-	public boolean excluir(@RequestBody BandaDto bandaDto) {
-		return bandaServiceImpl.excluir(bandaDto);
+	@RequestMapping(value="/excluir", method=RequestMethod.DELETE)
+	public void excluir(@RequestParam Integer idBanda) {
+		 bandaServiceImpl.excluir(idBanda);
 	}
 	
 

@@ -33,6 +33,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		httpSecurity.csrf().disable().authorizeRequests()
 			.antMatchers("/usuario/**").permitAll()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()
+			.antMatchers(HttpMethod.GET, "/banda/listar" ).permitAll()
+			.antMatchers(HttpMethod.POST, "/banda/salvar").permitAll()
+			.antMatchers(HttpMethod.DELETE, "/banda/excluir/**").permitAll()
+			.antMatchers("/album/**").permitAll()
 			.antMatchers("/resources/**", "/webjars/**" , "/materialize/**" , "/style/**").permitAll()
 			.anyRequest().authenticated();
 	}

@@ -21,7 +21,7 @@ public class BandaServiceImpl implements BandaService {
 	}
 
 	@Override
-	public BandaDto salvar(BandaDto bandaDto) throws Exception {
+	public boolean salvar(BandaDto bandaDto) throws Exception {
 		try {
 			Banda banda = new Banda();
 			banda = bandaRepository.pesquisarPorNome(bandaDto.getNome().toLowerCase());
@@ -32,7 +32,7 @@ public class BandaServiceImpl implements BandaService {
 					throw new Exception("Banda ja existe");
 				}
 			
-			return new ModelMapper().map(banda, BandaDto.class);
+			return true;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}
@@ -51,14 +51,12 @@ public class BandaServiceImpl implements BandaService {
 	}
 	
 	@Override
-	public boolean excluir(BandaDto bandaDto) {
+	public void excluir(Integer idBanda) {
 		try {
-			bandaRepository.delete(new ModelMapper().map(bandaDto, Banda.class));
-			return true;
-		}catch (Exception e) {
+			bandaRepository.deleteById(idBanda);
+ 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false;
 	}
 
 }

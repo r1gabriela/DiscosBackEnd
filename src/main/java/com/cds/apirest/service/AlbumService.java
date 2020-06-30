@@ -13,6 +13,6 @@ public interface AlbumService {
 
 	public ArrayList<AlbumDto> listarPorBanda(Banda banda);
 
-	public boolean excluir(AlbumDto albumDto);
+	public void excluir(Integer idAlbum);
 
 }

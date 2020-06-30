@@ -6,10 +6,10 @@ import com.cds.apirest.dto.BandaDto;
 
 public interface BandaService {
 
-	public BandaDto salvar(BandaDto bandaDto) throws Exception;
+	public boolean salvar(BandaDto bandaDto) throws Exception;
 
 	public ArrayList<BandaDto> listar();
 
-	public boolean excluir(BandaDto bandaDto);
+	public void excluir(Integer idBanda);
 
 }

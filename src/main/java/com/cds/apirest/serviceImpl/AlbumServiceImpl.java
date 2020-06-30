@@ -56,14 +56,14 @@ public class AlbumServiceImpl implements AlbumService{
 	}
 	
 	@Override
-	public boolean excluir(AlbumDto albumDto) {
+	public void excluir(Integer idAlbum) {
 		try {
-			albumRepository.delete(new ModelMapper().map(albumDto, Album.class));
-			return true;
+			albumRepository.deleteById(idAlbum);
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false;
+
 	}
 	
 }
